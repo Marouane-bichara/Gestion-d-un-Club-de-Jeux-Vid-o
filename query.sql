@@ -82,6 +82,39 @@ genre;
 
 SELECT members.name , COUNT(loans.id)
 FROM members
-join loans on loans.id_member = members.id
+join loans on members.id = loans.id_member
 GROUP by 
-members.id , members.name
+members.id , members.name;
+
+-- Show games released after a certain year
+
+SELECT * 
+from video_games
+WHERE 
+    YEAR(release_date) > 2020 
+ORDER BY 
+    title ASC;
+
+
+
+--  Find members who have borrowed a game, but have not yet returned it
+
+-- !!!! i dont have anyone didnt return so i used time of actual return date 2024-10-11 isted of not returned
+SELECT members.id , members.name , loans.expected_return_date
+FROM members 
+JOIN loans on loans.id_member = members.id
+WHERE 
+loans.actual_return_date = "2024-10-11"  
+
+
+--  List tournaments that took place between two specific dates.
+
+SELECT tournaments.name, tournaments.date_tournament, tournaments.prizes, video_games.title AS game_title
+FROM tournaments
+JOIN video_games ON tournaments.game_id = video_games.id
+WHERE tournaments.date_tournament BETWEEN '2024-12-01' AND '2024-12-31'
+ORDER BY tournaments.date_tournament;
+
+
+
+-- Show members with multiple active borrows
