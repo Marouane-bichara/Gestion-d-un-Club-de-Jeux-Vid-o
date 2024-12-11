@@ -63,3 +63,25 @@ FROM members
 JOIN subscriptions on subscriptions.id = members.subscription_id;
 
 -- Calculate the total number of games available by genre
+
+
+SELECT genre, COUNT(*) as total_jeux
+FROM video_games
+GROUP BY 
+genre;
+
+--  Find the tournament with the highest number of participants
+
+
+
+
+
+
+
+--  Display the number of borrows made by each member.
+
+SELECT members.name , COUNT(loans.id)
+FROM members
+join loans on loans.id_member = members.id
+GROUP by 
+members.id , members.name
