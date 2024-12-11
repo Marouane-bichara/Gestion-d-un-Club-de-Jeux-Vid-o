@@ -41,6 +41,8 @@ INSERT INTO members (name, email, join_date, subscription_id) VALUES
 ('Oliver Young', 'oliver.young@example.com', '2024-12-22', 3),
 ('Chloe Lewis', 'chloe.lewis@example.com', '2024-12-23', 1);
 
+
+
 -- Table: subscriptions
 CREATE TABLE subscriptions (
     id INT AUTO_INCREMENT PRIMARY KEY,
